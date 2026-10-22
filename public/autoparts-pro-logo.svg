@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" fill="none">
+  <rect x="4" y="8" width="48" height="48" rx="10" fill="#1E40AF"/>
+  <path d="M18 32L26 20H34L28 30H38L24 46L27 34H18Z" fill="#FFFFFF"/>
+  <text x="64" y="34" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="900" fill="#0F172A" letter-spacing="-0.5">AUTOPARTS PRO</text>
+  <text x="64" y="50" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" fill="#475569" letter-spacing="1.5">ATOMIC E-COMMERCE ENGINE</text>
+</svg>

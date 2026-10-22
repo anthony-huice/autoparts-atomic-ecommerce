@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/*
+ * ─── FORZAR LIGHT MODE GLOBAL ────────────────────────────────────────────────
+ * Tailwind v4 genera automáticamente un bloque:
+ *   @media (prefers-color-scheme: dark) { :root { --background: #0a0a0a } }
+ * cuando detecta las variables --background / --foreground en :root.
+ *
+ * La solución es:
+ *   1. Declarar `color-scheme: light` en :root → el navegador no aplica
+ *      estilos oscuros nativos (scrollbars, inputs, etc.)
+ *   2. Usar valores de color FIJOS en body (sin var()) → inmunes a cualquier
+ *      @media (prefers-color-scheme: dark) que pueda sobrescribir la variable.
+ *   3. Neutralizar la variable con !important dentro de un bloque dark media
+ *      como capa de seguridad adicional.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+:root {
+  color-scheme: light;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Forzar fondo claro con valores fijos — NO usar var() aquí */
+body {
+  background-color: #f8fafc; /* slate-50 */
+  color: #0f172a;            /* slate-900 */
+  font-family: var(--font-geist-sans, Inter, system-ui, Arial, sans-serif);
+}
+
+/* Capa de seguridad: si el browser inyecta dark, lo neutralizamos */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+  }
+  body {
+    background-color: #f8fafc !important;
+    color: #0f172a !important;
+  }
+}
